@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exam Recall Readiness Kit — Pass The Exam Without Panic</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1C1208;
+    --cream: #F5EFE4;
+    --warm-white: #FAF6EF;
+    --accent: #C45438;
+    --gold: #B8862A;
+    --muted: #7A6A54;
+    --border: rgba(28,18,8,0.1);
+    --card-bg: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(250,246,239,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-brand {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-cta {
+    background: var(--accent); color: #fff;
+    padding: 10px 24px; border-radius: 6px;
+    font-size: 13px; font-weight: 600;
+    text-decoration: none; letter-spacing: 0.04em;
+    transition: opacity 0.2s;
+  }
+  .nav-cta:hover { opacity: 0.88; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    padding: 120px 40px 80px;
+    background: var(--ink);
+    position: relative; overflow: hidden;
+  }
+  .hero-glow {
+    position: absolute; width: 800px; height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(196,84,56,0.14) 0%, transparent 65%);
+    right: -200px; top: 50%; transform: translateY(-50%);
+    pointer-events: none;
+  }
+  .hero-glow2 {
+    position: absolute; width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,134,42,0.08) 0%, transparent 65%);
+    left: -100px; bottom: -100px;
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 860px; margin: 0 auto;
+    text-align: center; position: relative; z-index: 1;
+  }
+  .hero-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--accent);
+    border: 1px solid rgba(196,84,56,0.4);
+    padding: 8px 18px; border-radius: 4px;
+    margin-bottom: 36px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 7vw, 80px);
+    font-weight: 900; line-height: 1.06;
+    color: var(--cream); margin-bottom: 28px;
+  }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero-sub {
+    font-size: 20px; color: rgba(245,239,228,0.65);
+    line-height: 1.65; max-width: 620px;
+    margin: 0 auto 48px;
+  }
+  .price-row {
+    display: flex; align-items: center; justify-content: center;
+    gap: 16px; margin-bottom: 36px;
+  }
+  .price-old {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; color: rgba(245,239,228,0.3);
+    text-decoration: line-through;
+  }
+  .price-new {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px; font-weight: 900; color: var(--cream);
+    line-height: 1;
+  }
+  .price-save {
+    background: var(--accent); color: #fff;
+    font-size: 13px; font-weight: 600;
+    padding: 6px 12px; border-radius: 4px;
+  }
+  .btn-hero {
+    display: inline-block;
+    background: var(--accent); color: #fff;
+    padding: 20px 52px; border-radius: 8px;
+    font-size: 17px; font-weight: 600;
+    text-decoration: none; letter-spacing: 0.04em;
+    transition: transform 0.2s, opacity 0.2s;
+    margin-bottom: 20px;
+  }
+  .btn-hero:hover { transform: translateY(-2px); opacity: 0.92; }
+  .hero-note {
+    font-size: 13px; color: rgba(245,239,228,0.35);
+    letter-spacing: 0.06em;
+  }
+
+  /* SECTION */
+  .section { padding: 100px 40px; }
+  .section-alt { background: var(--cream); }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .container-narrow { max-width: 760px; margin: 0 auto; }
+  .section-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 900; line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .section-title em { font-style: italic; color: var(--accent); }
+  .section-lead {
+    font-size: 18px; color: var(--muted);
+    line-height: 1.7; max-width: 600px;
+    margin-bottom: 60px;
+  }
+
+  /* WHAT'S INSIDE */
+  .items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  .item-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px; padding: 36px;
+    position: relative; overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .item-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(28,18,8,0.08);
+  }
+  .item-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--gold));
+  }
+  .item-type {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .item-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 900;
+    line-height: 1.2; margin-bottom: 12px;
+  }
+  .item-desc {
+    font-size: 15px; color: var(--muted);
+    line-height: 1.65;
+  }
+  .item-time {
+    display: inline-block; margin-top: 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; color: rgba(28,18,8,0.35);
+    letter-spacing: 0.1em;
+  }
+
+  /* FOR WHO */
+  .for-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  @media (max-width: 640px) { .for-grid { grid-template-columns: 1fr; } }
+  .for-card {
+    padding: 36px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+  .for-yes { background: var(--ink); }
+  .for-no { background: var(--card-bg); }
+  .for-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; margin-bottom: 24px;
+  }
+  .for-yes .for-label { color: var(--accent); }
+  .for-no .for-label { color: var(--muted); }
+  .for-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .for-list li {
+    font-size: 15px; line-height: 1.5;
+    display: flex; align-items: flex-start; gap: 12px;
+  }
+  .for-yes .for-list li { color: rgba(245,239,228,0.8); }
+  .for-no .for-list li { color: var(--muted); }
+  .for-list li span { flex-shrink: 0; font-size: 14px; margin-top: 1px; }
+
+  /* CTA SECTION */
+  .cta-box {
+    background: var(--ink);
+    border-radius: 16px; padding: 72px 60px;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .cta-box::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(196,84,56,0.15) 0%, transparent 65%);
+    right: -150px; top: 50%; transform: translateY(-50%);
+    pointer-events: none;
+  }
+  .cta-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900; color: var(--cream);
+    margin-bottom: 20px; position: relative; z-index: 1;
+  }
+  .cta-box h2 em { font-style: italic; color: var(--accent); }
+  .cta-box p {
+    font-size: 18px; color: rgba(245,239,228,0.6);
+    margin-bottom: 40px; position: relative; z-index: 1;
+  }
+  .cta-price-row {
+    display: flex; align-items: center; justify-content: center;
+    gap: 14px; margin-bottom: 32px; position: relative; z-index: 1;
+  }
+  .cta-price-old {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px; color: rgba(245,239,228,0.25);
+    text-decoration: line-through;
+  }
+  .cta-price-new {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px; font-weight: 900; color: var(--cream);
+  }
+  .btn-cta {
+    display: inline-block;
+    background: var(--accent); color: #fff;
+    padding: 20px 56px; border-radius: 8px;
+    font-size: 17px; font-weight: 600;
+    text-decoration: none; letter-spacing: 0.04em;
+    transition: transform 0.2s, opacity 0.2s;
+    position: relative; z-index: 1;
+    margin-bottom: 16px;
+  }
+  .btn-cta:hover { transform: translateY(-2px); opacity: 0.92; }
+  .cta-note {
+    font-size: 13px; color: rgba(245,239,228,0.3);
+    position: relative; z-index: 1;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink); border-top: 1px solid rgba(245,239,228,0.06);
+    padding: 40px; text-align: center;
+  }
+  footer p {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em;
+    color: rgba(245,239,228,0.2); text-transform: uppercase;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+
+  /* ANIMATIONS */
+  .fade-up {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">Pass The Exam Without Panic</a>
+  <a href="https://whop.com/pass-the-exam-without-panic/exam-recall-readiness-kit/" class="nav-cta" target="_blank">Get the Kit — $27</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Instant Download · 5 Resources</div>
+    <h1>Stop Blanking.<br>Start <em>Recalling.</em></h1>
+    <p class="hero-sub">Five focused tools that help licensure candidates remember what they study, decode tricky questions, and walk into exam day without second-guessing everything.</p>
+    <div class="price-row">
+      <span class="price-old">$33.75</span>
+      <span class="price-new">$27</span>
+      <span class="price-save">Save 20%</span>
+    </div>
+    <a href="https://whop.com/pass-the-exam-without-panic/exam-recall-readiness-kit/" class="btn-hero" target="_blank">Get Instant Access — $27</a>
+    <p class="hero-note">Instant download · No subscription · Keep forever</p>
+  </div>
+</section>
+
+<!-- WHAT'S INSIDE -->
+<section class="section">
+  <div class="container">
+    <div class="fade-up">
+      <span class="section-tag">What's Inside</span>
+      <h2 class="section-title">5 Tools. One <em>Kit.</em></h2>
+      <p class="section-lead">Everything you need to study smarter, answer with confidence, and stop rereading the same pages over and over.</p>
+    </div>
+    <div class="items-grid">
+
+      <div class="item-card fade-up">
+        <div class="item-type">Cheat Sheet</div>
+        <div class="item-title">Licensure Exam Memory Cheat Sheet</div>
+        <div class="item-desc">A compact reference for turning dense rules, policy language, and abstract definitions into retained knowledge. Covers key numbers, rule language, definition cues, confusables, and test-day recall patterns.</div>
+        <span class="item-time">~18 min · Instant reference</span>
+      </div>
+
+      <div class="item-card fade-up">
+        <div class="item-type">Cheat Sheet</div>
+        <div class="item-title">Question Reframing Cheat Sheet</div>
+        <div class="item-desc">How to recognise the same fact in a new form — even when the wording changes. Covers rephrase triggers, exam trap words, sentence cues, and pressure moves so you stop freezing on reworded questions.</div>
+        <span class="item-time">~15 min · 6 sections</span>
+      </div>
+
+      <div class="item-card fade-up">
+        <div class="item-type">Worksheet</div>
+        <div class="item-title">Retrieval Practice Worksheet</div>
+        <div class="item-desc">A structured practice tool that forces your brain to retrieve information from scratch — the exact kind of practice proven to build durable memory. Stop rereading. Start recalling.</div>
+        <span class="item-time">Active recall focused</span>
+      </div>
+
+      <div class="item-card fade-up">
+        <div class="item-type">Worksheet</div>
+        <div class="item-title">From Familiar to Forgotten</div>
+        <div class="item-desc">A fillable worksheet that helps you identify which material only feels familiar versus what you can actually recall under pressure. Exposes the Passive Study Illusion in your own study habits.</div>
+        <span class="item-time">Self-diagnostic · Fillable</span>
+      </div>
+
+      <div class="item-card fade-up">
+        <div class="item-type">Worksheet</div>
+        <div class="item-title">Trusting What You Know on Test Day</div>
+        <div class="item-desc">A 7-question worksheet that builds a personalised test-day decision rule — so you stop second-guessing your first informed answer and start trusting your preparation when it counts most.</div>
+        <span class="item-time">~18 min · 7 questions</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHO -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="fade-up">
+      <span class="section-tag">Is This For You?</span>
+      <h2 class="section-title">Built for <em>Candidates</em><br>in the Final Stretch</h2>
+    </div>
+    <div class="for-grid fade-up">
+      <div class="for-card for-yes">
+        <div class="for-label">✓ This is for you if...</div>
+        <ul class="for-list">
+          <li><span>→</span>You understand the material but blank out under pressure</li>
+          <li><span>→</span>You freeze when questions are reworded or rephrased</li>
+          <li><span>→</span>You're in the final 4–12 weeks before your exam</li>
+          <li><span>→</span>You second-guess your first answer even when you know it</li>
+          <li><span>→</span>You've been rereading and highlighting but nothing is sticking</li>
+          <li><span>→</span>You want practical tools you can use today, not theory</li>
+        </ul>
+      </div>
+      <div class="for-card for-no">
+        <div class="for-label">✗ Not for you if...</div>
+        <ul class="for-list">
+          <li><span>→</span>You're still learning the subject from scratch</li>
+          <li><span>→</span>You need full explanations or worked examples</li>
+          <li><span>→</span>You're looking for a full study course</li>
+          <li><span>→</span>You don't have an exam coming up soon</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="container-narrow">
+    <div class="cta-box fade-up">
+      <h2>Get the Kit.<br><em>Use it today.</em></h2>
+      <p>Five focused tools. Instant download. No fluff.</p>
+      <div class="cta-price-row">
+        <span class="cta-price-old">$33.75</span>
+        <span class="cta-price-new">$27</span>
+      </div>
+      <a href="https://whop.com/pass-the-exam-without-panic/exam-recall-readiness-kit/" class="btn-cta" target="_blank">Get Instant Access — $27</a>
+      <p class="cta-note">Instant download · Keep forever · No subscription</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Pass The Exam Without Panic · <a href="https://pass-the-exam-without-panic.github.io/Active-Recall-OS-1/">See the Full System →</a></p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
